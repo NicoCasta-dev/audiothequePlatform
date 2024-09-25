@@ -13,5 +13,11 @@ class AuteurViewSet(viewsets.ModelViewSet):
 
 class LivreAudioViewSet(viewsets.ModelViewSet):
     queryset = LivreAudio.objects.all()
-    serializer_class = LivreAudioDetailSerializer
+    #serializer_class = LivreAudioDetailSerializer
     permission_classes = [ IsAdminUser ]
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return LivreAudioListSerializer
+        
+        return LivreAudioDetailSerializer

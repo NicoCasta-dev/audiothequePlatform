@@ -8,6 +8,7 @@ class Auteur(models.Model):
     def __str__(self):
         return f'{self.nom} {self.prenom} {self.biographie}'
     
+    
 class LivreAudio(models.Model):
     titre = models.CharField(max_length=100)
     auteur = models.ForeignKey(Auteur, on_delete=models.CASCADE)

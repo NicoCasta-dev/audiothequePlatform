@@ -7,7 +7,7 @@ class AuteurSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Auteur
-        fields = [ 'url' ,'id', 'nom' ]
+        fields = [ 'url' ,'id', 'nom', 'prenom', 'biographie' ]
 
 class LivreAudioListSerializer(serializers.HyperlinkedModelSerializer):
     #url = serializers.HyperlinkedIdentityField(view_name='livreaudio_detail')
@@ -30,4 +30,4 @@ class LivreAudioDetailSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = LivreAudio
-        fields = [ 'url', 'id', 'auteur', 'description', 'duree', 'chemin_fichier' ]
+        fields = [ 'url', 'id', 'titre', 'auteur', 'description', 'duree', 'chemin_fichier' ]
