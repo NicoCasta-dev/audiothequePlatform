@@ -6,7 +6,7 @@ class Auteur(models.Model):
     biographie = models.TextField()
 
     def __str__(self):
-        return self.nom, self.prenom, self.biographie
+        return f'{self.nom} {self.prenom} {self.biographie}'
     
 class LivreAudio(models.Model):
     titre = models.CharField(max_length=100)
@@ -16,4 +16,4 @@ class LivreAudio(models.Model):
     chemin_fichier = models.FileField(upload_to='livres_audio/')
 
     def __str__(self):
-        return self.titre, self.auteur, self.description, self.duree
+        return f'{self.titre} {self.auteur} {self.description} {self.duree}'
