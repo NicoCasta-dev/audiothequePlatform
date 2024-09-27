@@ -17,7 +17,7 @@ class AuteurDetailSerializer(serializers.HyperlinkedModelSerializer):
         fields = [ 'id', 'nom', 'prenom', 'biographie' ]
 
 class LivreAudioListSerializer(serializers.HyperlinkedModelSerializer):
-    #url = serializers.HyperlinkedIdentityField(view_name='livreaudio_detail')
+    #url = serializers.HyperlinkedIdentityField(view_name='livreaudio-list')
     auteur = serializers.HyperlinkedRelatedField(
         queryset=Auteur.objects.all(),
         view_name='auteur-detail'

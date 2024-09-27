@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from .models import Abonnement, Transaction
 
-class AbonnementSerializer(serializers.HyperlinkedModelSerializer):
-    #url = serializers.HyperlinkedIdentityField(view_name='abonnement_detail')
+class AbonnementSerializer(serializers.HyperlinkedModelSerializer):    
     
     utilisateur = serializers.HyperlinkedRelatedField(
         #queryset = Abonnement.objects.all(),
@@ -11,12 +10,11 @@ class AbonnementSerializer(serializers.HyperlinkedModelSerializer):
     )
 
     class Meta:
-        model : Abonnement
+        model = Abonnement
         fields = [ 'url', 'id', 'utilisateur', 'date_debut', 'date_fin', 'statut' ]
 
 class TransactionSerializer(serializers.HyperlinkedModelSerializer):
-    #url = serializers.HyperlinkedIdentityField(view_name='transaction_detail')
-    
+
     utilisateur = serializers.HyperlinkedRelatedField(
         #queryset = Transaction.objects.all(),
         view_name='user-detail',
