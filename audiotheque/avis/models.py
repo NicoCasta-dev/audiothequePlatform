@@ -10,4 +10,4 @@ class Avis(models.Model):
     date_creation = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.utilisateur, self.livre_audio, self.note, self.commentaire, self.date_creation 
+        return f'{self.utilisateur} {self.livre_audio} {self.note} {self.commentaire} {self.date_creation}' 
