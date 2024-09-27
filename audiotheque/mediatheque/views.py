@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from .models import Auteur, LivreAudio
-from .serializer import AuteurSerializer, LivreAudioListSerializer, LivreAudioDetailSerializer
+from .serializer import AuteurSerializer, LivreAudioListSerializer, LivreAudioDetailSerializer, AuteurDetailSerializer
 from rest_framework.permissions import IsAdminUser
 #from django_filters.rest_framework import DjangoFilterBanckend
 
@@ -10,6 +10,12 @@ class AuteurViewSet(viewsets.ModelViewSet):
     permission_classes = [ IsAdminUser ]
     # filter_backends = [ DjangoFilterBackend ]
     # filterset_fields = [ 'nom', 'prenom' ]
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return AuteurSerializer
+        
+        return AuteurDetailSerializer
 
 class LivreAudioViewSet(viewsets.ModelViewSet):
     queryset = LivreAudio.objects.all()
